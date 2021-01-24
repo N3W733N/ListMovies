@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="project_background">#171721</color>
+    <color name="Rating_yellow">#F9C534</color>
 </resources>

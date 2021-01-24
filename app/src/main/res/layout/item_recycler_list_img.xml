@@ -5,11 +5,9 @@
     android:id="@+id/itemRecycler"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/project_background"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="@dimen/default_text_10_sp"
         android:layout_width="125dp"
         android:layout_height="175dp"
         android:layout_marginStart="@dimen/default_size_16_dp"
@@ -32,9 +30,10 @@
         android:layout_marginStart="@dimen/default_size_8_dp"
         android:layout_marginTop="5dp"
         android:textAlignment="center"
-        android:textColor="@color/white"
         android:textStyle="bold"
+        android:textColor="@color/white"
         tools:text="Capitã Marvel" />
+
 
     <TextView
         android:id="@+id/movieDate"
@@ -42,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_size_8_dp"
         android:textAlignment="center"
-        android:textSize="@dimen/default_text_10_sp"
+        android:textSize="10sp"
         tools:text="Dec 16, 2020" />
+
 
 </LinearLayout>
