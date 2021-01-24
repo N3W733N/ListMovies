@@ -5,16 +5,15 @@
     android:id="@+id/itemRecycler"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/project_background"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="@dimen/default_text_10_sp"
-        android:layout_width="125dp"
-        android:layout_height="175dp"
+        android:layout_width="@dimen/default_size_125_dp"
+        android:layout_height="@dimen/default_size_175_dp"
         android:layout_marginStart="@dimen/default_size_16_dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="8dp">
+        android:layout_marginTop="@dimen/default_text_10_sp"
+        android:elevation="@dimen/default_size_10_dp"
+        app:cardCornerRadius="@dimen/default_size_8_dp">
 
         <ImageView
             android:id="@+id/roundedImageView"
@@ -30,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_size_8_dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/default_size_5_dp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -42,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_size_8_dp"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="@dimen/default_text_10_sp"
         tools:text="Dec 16, 2020" />
 

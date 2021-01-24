@@ -13,8 +13,8 @@
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/default_size_8_dp"
         android:layout_marginEnd="@dimen/default_size_8_dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="50dp">
+        android:elevation="@dimen/default_size_10_dp"
+        app:cardCornerRadius="@dimen/default_size_50_dp">
 
         <ImageView
             android:id="@+id/roundedImageViewActor"
