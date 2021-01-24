@@ -3,10 +3,10 @@ package com.newteenho.listmovies.presentation.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.newteenho.listmovies.R
+import com.newteenho.listmovies.data.API_IMG_URL
 import com.newteenho.listmovies.data.model.Actors
 import kotlinx.android.synthetic.main.item_elenco.view.*
 
@@ -44,7 +44,7 @@ class ActorsAdapter(
         fun bind(actor: Actors) {
             Glide
                 .with(itemView)
-                .load("https://image.tmdb.org/t/p/w185" + actor.profile_path)
+                .load(API_IMG_URL + actor.profile_path)
                 .centerCrop()
                 .into(actorPost)
 

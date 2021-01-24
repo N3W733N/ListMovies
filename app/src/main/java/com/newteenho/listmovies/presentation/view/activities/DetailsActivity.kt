@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.newteenho.listmovies.R
+import com.newteenho.listmovies.data.API_IMG_URL
 import com.newteenho.listmovies.presentation.view.adapter.ActorsAdapter
 import com.newteenho.listmovies.presentation.view.adapter.MoviesAdapter
 import com.newteenho.listmovies.presentation.viewModel.MoviesViewModel
@@ -22,15 +23,17 @@ class DetailsActivity : AppCompatActivity() {
 
         val viewModel: MoviesViewModel =
             ViewModelProviders.of(this).get(MoviesViewModel::class.java)
-        val charid = intent.getStringExtra("CHAR_ID")
-        val id = charid!!.toInt()
+        val charId = intent.getStringExtra("CHAR_ID")
+        val id = charId!!.toInt()
 
-        backButton.setOnClickListener{backButton()}
+        backButton.setOnClickListener { backButton() }
 
+        id.let {
+            viewModel.getMovieDetails(it)
+            viewModel.getActorsDetails(it)
+            viewModel.getRecommendations(it)
+        }
 
-        id.let { viewModel.getMovieDetails(it) }//.toInt())}
-        id.let { viewModel.getActorsDetails(it) }//.toInt())}
-        id.let { viewModel.getRecomendations(it) }//.toInt())}
         setMovieData(viewModel)
         setActorsData(viewModel)
         setRecommendedData(viewModel)
@@ -40,7 +43,7 @@ class DetailsActivity : AppCompatActivity() {
         viewModel.movieDetailsLD.observe(this, Observer {
             Glide
                 .with(this)
-                .load("https://image.tmdb.org/t/p/w500" + it.backdrop_path)
+                .load(API_IMG_URL + it.backdrop_path)
                 .centerCrop()
                 .into(imageViewDetails)
 
@@ -48,7 +51,6 @@ class DetailsActivity : AppCompatActivity() {
             textViewDetailsTitle.text = it.title
             textViewMovieDescription.text = it.overview
 
-            //Rating bar
             val ratingValue: Float = (it.vote_average / 2).toFloat()
             ratingBarDetails.numStars = 5
             ratingBarDetails.rating = ratingValue
@@ -72,7 +74,7 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun setRecommendedData(viewModel: MoviesViewModel) {
-        viewModel.movieRecomendationLD.observe(this, Observer {
+        viewModel.movieRecommendationLD.observe(this, Observer {
             it.let {
                 with(rcRelatedMovies) {
                     layoutManager = LinearLayoutManager(
@@ -82,7 +84,7 @@ class DetailsActivity : AppCompatActivity() {
                     )
                     adapter = MoviesAdapter(it) {
                         val intent =
-                            DetailsActivity.getStartIntent(this@DetailsActivity, it.id.toString())
+                            getStartIntent(this@DetailsActivity, it.id.toString())
                         startActivity(intent)
                     }
                 }
@@ -90,8 +92,7 @@ class DetailsActivity : AppCompatActivity() {
         })
     }
 
-
-    fun backButton(){
+    private fun backButton() {
         if (motionLayout.currentState == motionLayout.endState) {
             motionLayout.transitionToStart()
         } else finish()

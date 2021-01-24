@@ -27,8 +27,8 @@ class MoviesViewModel : ViewModel() {
     val movieActorsMLD: MutableLiveData<List<Actors>> = MutableLiveData()
     val movieActorsLD: LiveData<List<Actors>> = movieActorsMLD
 
-    val movieRecomendationMLD: MutableLiveData<List<Movie>> = MutableLiveData()
-    val movieRecomendationLD: LiveData<List<Movie>> = movieRecomendationMLD
+    val movieRecommendationMLD: MutableLiveData<List<Movie>> = MutableLiveData()
+    val movieRecommendationLD: LiveData<List<Movie>> = movieRecommendationMLD
 
     val moviesUpcomingMLD: MutableLiveData<List<Movie>> = MutableLiveData()
     val moviesUpcomingLD: LiveData<List<Movie>> = moviesUpcomingMLD
@@ -47,7 +47,7 @@ class MoviesViewModel : ViewModel() {
         getClassic()
     }
 
-    fun getMovies() {
+    private fun getMovies() {
         ApiService.run {
             services.getPupularMovies().enqueue(object : Callback<MovieResponse> {
                 override fun onResponse(
@@ -62,12 +62,12 @@ class MoviesViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    Log.e("onFailure", t.message.toString())
+                    Log.e("onGetMoviesFailure", t.message.toString())
                 }
             })
         }
     }
-    fun getClassic(){
+    private fun getClassic(){
         ApiService.run {
             services.getMoviesClassic().enqueue(object : Callback<MovieResponse>{
                 override fun onResponse(
@@ -82,14 +82,14 @@ class MoviesViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.e("onGetClassicFailure", t.message.toString())
                 }
 
             })
         }
     }
 
-    fun getRatedMovies() {
+    private fun getRatedMovies() {
         ApiService.run {
             services.getTopRatedMovies().enqueue(object : Callback<MovieResponse> {
                 override fun onResponse(
@@ -105,13 +105,13 @@ class MoviesViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    Log.e("onFailure", t.message.toString())
+                    Log.e("onGetRatedMoviesFailure", t.message.toString())
                 }
             })
         }
     }
 
-    fun getNowOnTheaters() {
+    private fun getNowOnTheaters() {
         ApiService.run {
             services.getNowPlayingMovies().enqueue(object : Callback<MovieResponse> {
                 override fun onResponse(
@@ -127,13 +127,13 @@ class MoviesViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    Log.e("onFailure", t.message.toString())
+                    Log.e("onGetNowOnTheateFailure", t.message.toString())
                 }
             })
         }
     }
 
-    fun getUpcomingMovies() {
+    private fun getUpcomingMovies() {
         ApiService.run {
             services.getUpcomingMovies().enqueue(object : Callback<MovieResponse> {
                 override fun onResponse(
@@ -148,7 +148,7 @@ class MoviesViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Log.e("onGetUpComingMFailure", t.message.toString())
                 }
             })
         }
@@ -165,7 +165,7 @@ class MoviesViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<Movie>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.e("onGetMDetailsFailure", t.message.toString())
             }
         })
     }
@@ -186,26 +186,26 @@ class MoviesViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<MovieCreditsResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.e("onGetActorsFailure", t.message.toString())
             }
 
         })
     }
 
-    fun getRecomendations(id: Int) {
+    fun getRecommendations(id: Int) {
         services.getMoviesRecommendations(id).enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 if (response.isSuccessful) {
                     response.body().let {
                         if (it != null) {
-                            movieRecomendationMLD.value = it.results
+                            movieRecommendationMLD.value = it.results
                         }
                     }
                 }
             }
 
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.e("onGetRecomenFailure", t.message.toString())
             }
 
         })

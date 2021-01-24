@@ -2,4 +2,9 @@
     <string name="app_name">ListMovies</string>
     <string name="movie_cast">Cast</string>
     <string name="movie_related">Related Movies</string>
+    <string name="movie_classic">Classic Movie</string>
+    <string name="movie_popular">Popular Movies</string>
+    <string name="movie_now_theaters">Now on theaters</string>
+    <string name="movie_rated">Top Rated Movies</string>
+    <string name="movie_upcoming">Upcoming Movies</string>
 </resources>

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="project_background">#171721</color>
     <color name="Rating_yellow">#F9C534</color>
+    <color name="shadowColor">#04d9ff</color>
 </resources>

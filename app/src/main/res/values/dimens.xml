@@ -35,6 +35,7 @@
     <dimen name="default_size_44_dp">44dp</dimen>
     <dimen name="default_size_45_dp">45dp</dimen>
     <dimen name="default_size_50_dp">50dp</dimen>
+    <dimen name="default_size_55_dp">55dp</dimen>
     <dimen name="default_size_56_dp">56dp</dimen>
     <dimen name="default_size_64_dp">64dp</dimen>
     <dimen name="default_size_65_dp">65dp</dimen>
@@ -52,7 +53,9 @@
     <dimen name="default_size_175_dp">175dp</dimen>
     <dimen name="default_size_178_dp">178dp</dimen>
     <dimen name="default_size_205_dp">205dp</dimen>
+    <dimen name="default_size_220_dp">220dp</dimen>
     <dimen name="default_size_250_dp">250dp</dimen>
+    <dimen name="default_size_300_dp">300dp</dimen>
     <dimen name="default_size_400_dp">400dp</dimen>
     <dimen name="default_size_409_dp">409dp</dimen>
 
