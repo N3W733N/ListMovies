@@ -7,4 +7,5 @@
     <string name="movie_now_theaters">Now on theaters</string>
     <string name="movie_rated">Top Rated Movies</string>
     <string name="movie_upcoming">Upcoming Movies</string>
+    <string name="back_button">Voltar</string>
 </resources>

@@ -52,9 +52,11 @@ class DetailsActivity : AppCompatActivity() {
             textViewMovieDescription.text = it.overview
 
             val ratingValue: Float = (it.vote_average / 2).toFloat()
+            val ratingString = "%.1f".format(ratingValue)
             ratingBarDetails.numStars = 5
             ratingBarDetails.rating = ratingValue
-            textViewRatingValue.text = "%.1f".format(ratingValue)
+            textViewRatingValue.contentDescription = "Avaliação: $ratingString"
+            textViewRatingValue.text = ratingString
         })
     }
 

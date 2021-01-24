@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                     .centerCrop()
                     .into(imageLatestMovie)
                 textViewLatestTitle.text = it[random].title
+                imageLatestMovie.contentDescription = "Movie ${it[random].title}"
 
                 imageLatestMovie.setOnClickListener { view ->
                     val intent =
@@ -109,5 +110,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+        fun setAccessibility(){
+
+        }
     }
 }
