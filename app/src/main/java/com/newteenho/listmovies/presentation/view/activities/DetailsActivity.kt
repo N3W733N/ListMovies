@@ -22,9 +22,10 @@ class DetailsActivity : AppCompatActivity() {
 
         val viewModel: MoviesViewModel =
             ViewModelProviders.of(this).get(MoviesViewModel::class.java)
-
         val charid = intent.getStringExtra("CHAR_ID")
         val id = charid!!.toInt()
+
+        backButton.setOnClickListener{backButton()}
 
 
         id.let { viewModel.getMovieDetails(it) }//.toInt())}
@@ -87,6 +88,13 @@ class DetailsActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+
+    fun backButton(){
+        if (motionLayout.currentState == motionLayout.endState) {
+            motionLayout.transitionToStart()
+        } else finish()
     }
 
     companion object {

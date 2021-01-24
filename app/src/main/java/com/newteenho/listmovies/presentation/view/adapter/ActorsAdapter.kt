@@ -3,6 +3,7 @@ package com.newteenho.listmovies.presentation.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.newteenho.listmovies.R
@@ -10,7 +11,7 @@ import com.newteenho.listmovies.data.model.Actors
 import kotlinx.android.synthetic.main.item_elenco.view.*
 
 class ActorsAdapter(
-    val actorsList : List<Actors>
+    private val actorsList: List<Actors>
 ) : RecyclerView.Adapter<ActorsAdapter.DetailsViewHolder>() {
 
 
@@ -18,7 +19,8 @@ class ActorsAdapter(
         parent: ViewGroup,
         viewType: Int
     ): DetailsViewHolder {
-        val itemViews = LayoutInflater.from(parent.context).inflate(R.layout.item_elenco,parent,false)
+        val itemViews =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_elenco, parent, false)
         return DetailsViewHolder(itemViews)
     }
 
@@ -34,13 +36,12 @@ class ActorsAdapter(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
 
-        val actorPost = itemView.roundedImageViewActor
-        val actorName = itemView.textActorName
-        val actorRole = itemView.textActorRole
+        private val actorPost = itemView.roundedImageViewActor
+        private val actorName = itemView.textActorName
+        private val actorRole = itemView.textActorRole
 
 
-        fun bind(actor : Actors){
-
+        fun bind(actor: Actors) {
             Glide
                 .with(itemView)
                 .load("https://image.tmdb.org/t/p/w185" + actor.profile_path)
@@ -50,7 +51,5 @@ class ActorsAdapter(
             actorName.text = actor.name
             actorRole.text = actor.character
         }
-
     }
-
 }

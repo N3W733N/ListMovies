@@ -28,8 +28,12 @@ class MoviesAdapter(
     override fun getItemCount() = movieList.size
 
 
-    class MoviesViewHolder(itemView: View, private val onItemClickListener: (movie: Movie) -> Unit) :
+    class MoviesViewHolder(
+        itemView: View,
+        private val onItemClickListener: (movie: Movie) -> Unit
+    ) :
         RecyclerView.ViewHolder(itemView) {
+
         private val movieTitle = itemView.movieTitle
         private val movieDate = itemView.movieDate
         private val moviePoster = itemView.roundedImageView
