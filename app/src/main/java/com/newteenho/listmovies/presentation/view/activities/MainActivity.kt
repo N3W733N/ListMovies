@@ -110,8 +110,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-        fun setAccessibility(){
-
-        }
     }
 }
